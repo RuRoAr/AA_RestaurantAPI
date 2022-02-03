@@ -34,11 +34,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         restaurants = new ArrayList<>();// la inicializamos para que en cuanto cargue la cree de primeras
 
         ListView lvRestaurants = findViewById(R.id.restaurants_list);//asignamos la lista al layout
-        restaurantsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        restaurantsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, restaurants);
         // las dos lista para que se pueda ver, el list_item_1 es untipo de lista ya precocinado
         // que esta ya predertiemado ese tipo de listas(se ouede cambiar)
 
         lvRestaurants.setAdapter(restaurantsAdapter);//aqui se emparejan
+
+        lvRestaurants.setOnItemClickListener(this);
     }
 
 
@@ -75,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onResume() {//otra forma de actualizar la lista
         super.onResume();
-
         restaurantsAdapter.notifyDataSetChanged();
         makeSummary();
     }
