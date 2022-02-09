@@ -2,6 +2,7 @@ package com.svalero.restaurantapi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,13 +17,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.svalero.restaurantapi.batabase.AppDatabase;
 import com.svalero.restaurantapi.domain.Restaurant;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{// el lisener es para escuchar el click de la pantalla {
 
-    public static ArrayList<Restaurant> restaurants;// necesito tener una lista para los Restaurantes, lista de la BBDD
+    public List<Restaurant> restaurants;// necesito tener una lista para los Restaurantes, lista de la BBDD
     private ArrayAdapter<Restaurant> restaurantsAdapter;//objeto android que hace que el lv liste todo el arrayList
 
 
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         restaurantsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, restaurants);
         // las dos lista para que se pueda ver, el list_item_1 es untipo de lista ya precocinado
         // que esta ya predertiemado ese tipo de listas(se ouede cambiar)
+
+
+
 
         lvRestaurants.setAdapter(restaurantsAdapter);//aqui se emparejan
 
@@ -77,8 +83,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onResume() {//otra forma de actualizar la lista
         super.onResume();
+
+        loadRestaurant();// lo que hace es que llama al metodo de volver a cargar la lista de la bbdd
         restaurantsAdapter.notifyDataSetChanged();
         makeSummary();
+    }
+
+    private void loadRestaurant(){
+        restaurants.clear();
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext()
+                ,AppDatabase.class, "restaurants").allowMainThreadQueries()
+                .fallbackToDestructiveMigration().build();
+        restaurants.addAll(db.restaurantDao().getAll());//el addAll es para que apunte a la misma lista
     }
 
 

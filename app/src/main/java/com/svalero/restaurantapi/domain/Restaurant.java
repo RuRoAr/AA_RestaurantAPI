@@ -1,13 +1,27 @@
 package com.svalero.restaurantapi.domain;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity//todo esto es a raiz del room
 public class Restaurant {
 
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @ColumnInfo
     private String name;
+    @ColumnInfo
     private String address;
+    @ColumnInfo
     private String typeFood;
+    @ColumnInfo
     private float qualification;
+    @ColumnInfo
     private String recommendation;
+    @ColumnInfo
     private float mediumPrice;
+    @ColumnInfo
     private String goBack;
 
     public Restaurant(String name, String address, String typeFood, float qualification, String recommendation, float mediumPrice, String goBack) {
@@ -18,6 +32,14 @@ public class Restaurant {
         this.recommendation = recommendation;
         this.mediumPrice = mediumPrice;
         this.goBack = goBack;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getGoBack() {
@@ -78,14 +100,12 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", typeFood='" + typeFood + '\'' +
-                ", qualification=" + qualification +
-                ", recommendation='" + recommendation + '\'' +
-                ", mediumPrice=" + mediumPrice +
-                ", goBack='" + goBack + '\'' +
-                '}';
+        return " Nombre : " + name + "\n" +
+                " Direccion : " + address + "\n" +
+                " Tipo de comida : " + typeFood + "\n" +
+                " Calificacion : " + qualification + "\n" +
+                " Plato a recomedar : " + recommendation + "\n" +
+                " mediumPrice : " + mediumPrice + "\n" +
+                " Si vuelvo pediré... : " + goBack + "\n";
     }
 }

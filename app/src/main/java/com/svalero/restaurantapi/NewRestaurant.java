@@ -1,12 +1,16 @@
 package com.svalero.restaurantapi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.svalero.restaurantapi.batabase.AppDatabase;
 import com.svalero.restaurantapi.domain.Restaurant;
 
 public class NewRestaurant extends AppCompatActivity {
@@ -16,6 +20,7 @@ public class NewRestaurant extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_restaurant);
 
+        ImageView imageView = findViewById(R.id.imageView);
 
     }
     public void add(View view){ //con el parametri View wl otro es el que quierasView,
@@ -53,7 +58,15 @@ public class NewRestaurant extends AppCompatActivity {
                 Float.parseFloat(etMediumPrice.getText().toString()),
                 etGoBack.getText().toString());
 
-        MainActivity.restaurants.add(restaurant);
+       // MainActivity.restaurants.add(restaurant);
+
+        //con esta linea se instancia la bbdd
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),AppDatabase.class, "restaurants").allowMainThreadQueries()
+                .fallbackToDestructiveMigration().build();
+
+        //ahora ya puedo llamar a la base de datos
+        db.restaurantDao().insert(restaurant);
+
         Toast.makeText(this, "Restaurante " + restaurant + " Añadido", Toast.LENGTH_SHORT).show();
 
         etName.setText("");
