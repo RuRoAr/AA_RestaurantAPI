@@ -71,14 +71,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {// boton derecho methos, aqui le pondremos
         // a la pestaña de donde queremos ir
-        if (item.getItemId() == R.id.new_restuarant) {
-            Intent intent = new Intent(this, NewRestaurant.class);//con este obejeto es
-            // con el que le decimos a la clase a la que queremos ir
-            startActivity(intent);
-            return true;
+
+
+        switch (item.getItemId()) {
+
+            case R.id.new_restuarant:
+                Intent intent1 = new Intent(this, NewRestaurant.class);
+                startActivity(intent1);
+                return true;
+            case R.id.restaurant_found:
+                Intent intent2 = new Intent(this, RestaurantFound.class);
+                startActivity(intent2);
+                return true;
+            case R.id.user_login:
+                Intent intent3 = new Intent(this, UserLogin.class);
+                startActivity(intent3);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return false;
+
+//        if (item.getItemId() == R.id.new_restuarant) {
+//            Intent intent = new Intent(this, NewRestaurant.class);//con este obejeto es
+//            // con el que le decimos a la clase a la que queremos ir
+//            startActivity(intent);
+//            return true;
+//        }
+//
+//        return false;
     }
     @Override
     protected void onResume() {//otra forma de actualizar la lista
@@ -101,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Restaurant restaurant = restaurants.get(position);//cogo la posicion en la que esta el restaurante que voy a ver el detalle
+        Restaurant restaurant = restaurants.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
         //la posicion me la da el metodo
         Intent intent= new Intent(this, RestaurantDetail.class);//carga la clase
         intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail

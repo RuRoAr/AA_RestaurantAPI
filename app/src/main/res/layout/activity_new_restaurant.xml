@@ -87,12 +87,6 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="380dp"
-                android:layout_height="211dp"
-                tools:srcCompat="@tools:sample/avatars" />
-
         </LinearLayout>
 
     <Button

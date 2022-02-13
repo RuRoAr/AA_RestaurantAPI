@@ -20,7 +20,7 @@ public class NewRestaurant extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_restaurant);
 
-        ImageView imageView = findViewById(R.id.imageView);
+
 
     }
     public void add(View view){ //con el parametri View wl otro es el que quierasView,
@@ -34,6 +34,7 @@ public class NewRestaurant extends AppCompatActivity {
         EditText etRecommendation = findViewById(R.id.restaurrant_recommendation);
         EditText etMediumPrice = findViewById(R.id.restaurant_medium_price);
         EditText etGoBack = findViewById(R.id.restaurant_go_back);
+
 
 
         if (    etName.getText().toString().equals("")
@@ -57,6 +58,7 @@ public class NewRestaurant extends AppCompatActivity {
                 etRecommendation.getText().toString(),
                 Float.parseFloat(etMediumPrice.getText().toString()),
                 etGoBack.getText().toString());
+
 
        // MainActivity.restaurants.add(restaurant);
 

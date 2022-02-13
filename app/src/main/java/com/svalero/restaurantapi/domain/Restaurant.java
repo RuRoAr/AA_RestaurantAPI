@@ -24,6 +24,7 @@ public class Restaurant {
     @ColumnInfo
     private String goBack;
 
+
     public Restaurant(String name, String address, String typeFood, float qualification, String recommendation, float mediumPrice, String goBack) {
         this.name = name;
         this.address = address;
@@ -41,6 +42,8 @@ public class Restaurant {
     public void setId(int id) {
         this.id = id;
     }
+
+
 
     public String getGoBack() {
         return goBack;

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantAPI">
         <activity
+            android:name=".UserLogin"
+            android:exported="false" />
+        <activity
+            android:name=".RestaurantFound"
+            android:exported="false" />
+        <activity
             android:name=".RestaurantDetail"
             android:exported="false" />
         <activity
