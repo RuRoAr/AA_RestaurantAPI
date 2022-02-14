@@ -6,6 +6,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // las dos lista para que se pueda ver, el list_item_1 es untipo de lista ya precocinado
         // que esta ya predertiemado ese tipo de listas(se ouede cambiar)
 
-
-
+        ListView lvLista = (ListView) findViewById(R.id.restaurants_list);
+        registerForContextMenu(lvLista);
 
         lvRestaurants.setAdapter(restaurantsAdapter);//aqui se emparejan
 
@@ -119,6 +120,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         restaurants.addAll(db.restaurantDao().getAll());//el addAll es para que apunte a la misma lista
     }
 
+    //crea el menu contextual
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.edit, menu);
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -127,5 +135,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent= new Intent(this, RestaurantDetail.class);//carga la clase
         intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
         startActivity(intent);
+    }
+
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final int itemSeleccionado = info.position;
+        switch (item.getItemId()) {
+            case R.id.modificar:
+                Intent intent = new Intent(this, NewRestaurant.class);
+                startActivity(intent);
+            case R.id.borrar:
+                deleteRestaurant(info);
+                return true;
+            default:
+        return super.onContextItemSelected(item);
+    }}
+
+    public void  deleteRestaurant(AdapterView.AdapterContextMenuInfo info){
+        Restaurant restaurant = restaurants.get(info.position);
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "restaurants").allowMainThreadQueries().build();
+        db.restaurantDao().delete(restaurant);
+        finish();
+        startActivity(getIntent());
+
     }
 }
