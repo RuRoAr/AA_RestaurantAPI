@@ -6,6 +6,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.svalero.restaurantapi.batabase.AppDatabase;
 import com.svalero.restaurantapi.domain.Restaurant;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public List<Restaurant> restaurants;// necesito tener una lista para los Restaurantes, lista de la BBDD
     private ArrayAdapter<Restaurant> restaurantsAdapter;//objeto android que hace que el lv liste todo el arrayList
 
+    Restaurant restaurant = new Restaurant("","","",0,"",0,"");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // que esta ya predertiemado ese tipo de listas(se ouede cambiar)
 
         ListView lvLista = (ListView) findViewById(R.id.restaurants_list);
-        registerForContextMenu(lvLista);
+        registerForContextMenu(lvLista);//registra la lista en el menu contxtual
 
         lvRestaurants.setAdapter(restaurantsAdapter);//aqui se emparejan
 
@@ -132,8 +135,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Restaurant restaurant = restaurants.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
         //la posicion me la da el metodo
-        Intent intent= new Intent(this, RestaurantDetail.class);//carga la clase
-        intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
+        Intent intent= new Intent(this, ModifyRestaurant.class);//carga la clase
+        intent.putExtra("modify", 1);
+        intent.putExtra("nameRestaurant", restaurant.getName());
+        intent.putExtra("Restaurant", restaurant);
+       // intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
         startActivity(intent);
     }
 
@@ -144,9 +150,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         final int itemSeleccionado = info.position;
         switch (item.getItemId()) {
-            case R.id.modificar:
-                Intent intent = new Intent(this, NewRestaurant.class);
-                startActivity(intent);
+//            case R.id.modificar:
+//                Restaurant restaurant = restaurants.get(itemSeleccionado);
+//                Intent intent = new Intent(this, NewRestaurant.class);
+//                intent.putExtra("modify", 1);
+//                intent.putExtra("nameRestaurant", restaurant.getName());
+//                intent.putExtra("restaurant", String.valueOf(restaurant));
+//                startActivity(intent);
             case R.id.borrar:
                 deleteRestaurant(info);
                 return true;
