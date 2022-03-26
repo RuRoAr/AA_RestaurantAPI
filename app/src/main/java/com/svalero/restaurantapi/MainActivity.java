@@ -148,12 +148,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        final int itemSeleccionado = info.position;
+        //final int itemSeleccionado = info.position;
         switch (item.getItemId()) {
             case R.id.detail:
-                Restaurant restaurant = restaurants.get(itemSeleccionado);
+              //  Restaurant restaurant = restaurants.get(itemSeleccionado);
                 Intent intent = new Intent(this, RestaurantDetail.class);
-                intent.putExtra("recomendationRestaurant", restaurant.getRecommendation());
+           //   intent.putExtra("recomendationRestaurant", restaurant.getRecommendation());
                 startActivity(intent);
             case R.id.borrar:
                 deleteRestaurant(info);
