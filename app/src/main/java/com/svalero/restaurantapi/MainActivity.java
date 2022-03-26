@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater().inflate(R.menu.edit, menu);
+        getMenuInflater().inflate(R.menu.context, menu);
     }
 
     @Override
@@ -150,13 +150,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         final int itemSeleccionado = info.position;
         switch (item.getItemId()) {
-//            case R.id.modificar:
-//                Restaurant restaurant = restaurants.get(itemSeleccionado);
-//                Intent intent = new Intent(this, NewRestaurant.class);
-//                intent.putExtra("modify", 1);
-//                intent.putExtra("nameRestaurant", restaurant.getName());
-//                intent.putExtra("restaurant", String.valueOf(restaurant));
-//                startActivity(intent);
+            case R.id.detail:
+                Restaurant restaurant = restaurants.get(itemSeleccionado);
+                Intent intent = new Intent(this, RestaurantDetail.class);
+                intent.putExtra("recomendationRestaurant", restaurant.getRecommendation());
+                startActivity(intent);
             case R.id.borrar:
                 deleteRestaurant(info);
                 return true;

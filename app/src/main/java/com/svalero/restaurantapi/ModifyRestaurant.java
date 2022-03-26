@@ -37,6 +37,15 @@ public class ModifyRestaurant extends AppCompatActivity {
         EditText etGoBack = findViewById(R.id.restaurant_go_back);
 
         etName.setText(restaurant.getName());
+        etAddress.setText(restaurant.getAddress());
+        etGoBack.setText(restaurant.getGoBack());
+        etMediumPrice.setText(Float.toString( restaurant.getMediumPrice()));
+        etTypeFood.setText(restaurant.getTypeFood());
+        etRecomendation.setText(restaurant.getRecommendation());
+        etQualification.setText(Float.toString(restaurant.getQualification()));
+
+
+
     }
     public  void modify (View view){
         Toast.makeText(this, "Debes escribir todos los campos", Toast.LENGTH_SHORT).show();//aperece un mesaje tostada

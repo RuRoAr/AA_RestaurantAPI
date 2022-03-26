@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/modificar"
-        android:title="Modify" />
+        android:id="@+id/detail"
+        android:title="Detail" />
     <item
         android:id="@+id/borrar"
         android:title="Delete" />
