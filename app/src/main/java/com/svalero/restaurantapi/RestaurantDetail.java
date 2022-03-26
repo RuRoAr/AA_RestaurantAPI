@@ -15,7 +15,7 @@ public class RestaurantDetail extends AppCompatActivity {
         setContentView(R.layout.activity_detail_restaurant);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
+        String name = intent.getStringExtra("recomendationRestaurant");
 
         TextView etRestaurantDetail = findViewById(R.id.restaurant_detail_name);
         etRestaurantDetail.setText(name);

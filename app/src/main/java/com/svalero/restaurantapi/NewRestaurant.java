@@ -44,7 +44,7 @@ public class NewRestaurant extends AppCompatActivity {
         EditText etMediumPrice = findViewById(R.id.restaurant_medium_price);
         EditText etGoBack = findViewById(R.id.restaurant_go_back);
 
-            etName.setText(restaurant.getName());
+
 
 
     }

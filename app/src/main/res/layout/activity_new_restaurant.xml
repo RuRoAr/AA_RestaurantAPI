@@ -96,8 +96,8 @@
 
         android:onClick="add"
         android:text="Añadir"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="635dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="15dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
