@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.svalero.restaurantapi.domain.Restaurant;
 
@@ -18,6 +19,9 @@ public interface RestaurantDao {//aqui me creo los query methos
 
     @Query("SELECT * FROM restaurant WHERE name = :name")
     List<Restaurant> findByName(String name);
+
+    @Update
+    void update(Restaurant restaurant);
 
     @Insert
     void insert(Restaurant restaurant);

@@ -5,6 +5,13 @@
     <item
         android:id="@+id/new_restuarant"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="+"
-        app:showAsAction="always" />
+        android:title="Nuevo Restaurate" />
+    <item
+        android:id="@+id/restaurant_found"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Busqueda de restaurante" />
+    <item
+        android:id="@+id/user_login"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Datos del ususario" />
 </menu>

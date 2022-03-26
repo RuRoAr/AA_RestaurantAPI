@@ -87,22 +87,17 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="380dp"
-                android:layout_height="211dp"
-                tools:srcCompat="@tools:sample/avatars" />
-
         </LinearLayout>
 
     <Button
-        android:id="@+id/add_button"
+        android:id="@+id/add_button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:onClick="add"
         android:text="Añadir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="635dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

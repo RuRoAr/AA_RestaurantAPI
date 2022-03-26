@@ -6,6 +6,8 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 import com.svalero.restaurantapi.batabase.AppDatabase;
 import com.svalero.restaurantapi.domain.Restaurant;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public List<Restaurant> restaurants;// necesito tener una lista para los Restaurantes, lista de la BBDD
     private ArrayAdapter<Restaurant> restaurantsAdapter;//objeto android que hace que el lv liste todo el arrayList
 
+    Restaurant restaurant = new Restaurant("","","",0,"",0,"");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // las dos lista para que se pueda ver, el list_item_1 es untipo de lista ya precocinado
         // que esta ya predertiemado ese tipo de listas(se ouede cambiar)
 
-
-
+        ListView lvLista = (ListView) findViewById(R.id.restaurants_list);
+        registerForContextMenu(lvLista);//registra la lista en el menu contxtual
 
         lvRestaurants.setAdapter(restaurantsAdapter);//aqui se emparejan
 
@@ -71,14 +75,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {// boton derecho methos, aqui le pondremos
         // a la pestaña de donde queremos ir
-        if (item.getItemId() == R.id.new_restuarant) {
-            Intent intent = new Intent(this, NewRestaurant.class);//con este obejeto es
-            // con el que le decimos a la clase a la que queremos ir
-            startActivity(intent);
-            return true;
+
+
+        switch (item.getItemId()) {
+
+            case R.id.new_restuarant:
+                Intent intent1 = new Intent(this, NewRestaurant.class);
+                startActivity(intent1);
+                return true;
+            case R.id.restaurant_found:
+                Intent intent2 = new Intent(this, RestaurantFound.class);
+                startActivity(intent2);
+                return true;
+            case R.id.user_login:
+                Intent intent3 = new Intent(this, UserLogin.class);
+                startActivity(intent3);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return false;
+
+//        if (item.getItemId() == R.id.new_restuarant) {
+//            Intent intent = new Intent(this, NewRestaurant.class);//con este obejeto es
+//            // con el que le decimos a la clase a la que queremos ir
+//            startActivity(intent);
+//            return true;
+//        }
+//
+//        return false;
     }
     @Override
     protected void onResume() {//otra forma de actualizar la lista
@@ -98,13 +123,54 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         restaurants.addAll(db.restaurantDao().getAll());//el addAll es para que apunte a la misma lista
     }
 
+    //crea el menu contextual
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.edit, menu);
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Restaurant restaurant = restaurants.get(position);//cogo la posicion en la que esta el restaurante que voy a ver el detalle
+        Restaurant restaurant = restaurants.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
         //la posicion me la da el metodo
-        Intent intent= new Intent(this, RestaurantDetail.class);//carga la clase
-        intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
+        Intent intent= new Intent(this, ModifyRestaurant.class);//carga la clase
+        intent.putExtra("modify", 1);
+        intent.putExtra("nameRestaurant", restaurant.getName());
+        intent.putExtra("Restaurant", restaurant);
+       // intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
         startActivity(intent);
+    }
+
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final int itemSeleccionado = info.position;
+        switch (item.getItemId()) {
+//            case R.id.modificar:
+//                Restaurant restaurant = restaurants.get(itemSeleccionado);
+//                Intent intent = new Intent(this, NewRestaurant.class);
+//                intent.putExtra("modify", 1);
+//                intent.putExtra("nameRestaurant", restaurant.getName());
+//                intent.putExtra("restaurant", String.valueOf(restaurant));
+//                startActivity(intent);
+            case R.id.borrar:
+                deleteRestaurant(info);
+                return true;
+            default:
+        return super.onContextItemSelected(item);
+    }}
+
+    public void  deleteRestaurant(AdapterView.AdapterContextMenuInfo info){
+        Restaurant restaurant = restaurants.get(info.position);
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "restaurants").allowMainThreadQueries().build();
+        db.restaurantDao().delete(restaurant);
+        finish();
+        startActivity(getIntent());
+
     }
 }

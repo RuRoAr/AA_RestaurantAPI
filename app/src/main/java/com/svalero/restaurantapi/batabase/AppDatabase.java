@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 import com.svalero.restaurantapi.dao.RestaurantDao;
 import com.svalero.restaurantapi.domain.Restaurant;
 
-@Database(entities = {Restaurant.class}, version = 2)
+@Database(entities = {Restaurant.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract RestaurantDao restaurantDao();
