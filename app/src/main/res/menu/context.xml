@@ -3,9 +3,9 @@
 
     <item
         android:id="@+id/detail"
-        android:title="Detail" />
+        android:title="Detalle" />
     <item
         android:id="@+id/borrar"
-        android:title="Delete" />
+        android:title="Borrar" />
 
 </menu>

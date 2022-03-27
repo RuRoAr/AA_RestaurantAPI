@@ -7,6 +7,10 @@
         android:icon="@android:drawable/ic_menu_add"
         android:title="Nuevo Restaurate" />
     <item
+        android:id="@+id/new_wine"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Nuevo vino" />
+    <item
         android:id="@+id/restaurant_found"
         android:icon="@android:drawable/ic_menu_add"
         android:title="Busqueda de restaurante" />
@@ -14,4 +18,9 @@
         android:id="@+id/user_login"
         android:icon="@android:drawable/ic_menu_add"
         android:title="Datos del ususario" />
+    <item
+        android:id="@+id/camera"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Subir foto a la galeria" />
+
 </menu>
