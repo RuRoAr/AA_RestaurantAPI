@@ -108,7 +108,7 @@ public class Restaurant implements Serializable {
                 " Direccion : " + address + "\n" +
                 " Tipo de comida : " + typeFood + "\n" +
                 " Calificacion : " + qualification + "\n" +
-               // " Plato a recomedar : " + recommendation + "\n" +
+                " Plato a recomedar : " + recommendation + "\n" +
                 " mediumPrice : " + mediumPrice + "\n" +
                 " Si vuelvo pediré... : " + goBack + "\n";
     }

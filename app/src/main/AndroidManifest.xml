@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantAPI">
         <activity
+            android:name=".ListCocktail"
+            android:exported="false" />
+        <activity
+            android:name=".ListWine"
+            android:exported="false" />
+        <activity
             android:name=".PhotoCamera"
             android:exported="false" />
         <activity
@@ -19,13 +25,7 @@
             android:name=".ModifyRestaurant"
             android:exported="false" />
         <activity
-            android:name=".UserLogin"
-            android:exported="false" />
-        <activity
             android:name=".RestaurantFound"
-            android:exported="false" />
-        <activity
-            android:name=".RestaurantDetail"
             android:exported="false" />
         <activity
             android:name=".NewRestaurant"

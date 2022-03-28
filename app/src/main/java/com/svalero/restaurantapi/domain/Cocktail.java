@@ -7,46 +7,40 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity
-public class Wine implements Serializable {
-
+public class Cocktail implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo
     private String name ;
     @ColumnInfo
-    private String type;
+    private  float grade;
     @ColumnInfo
-    private  int age;
-    @ColumnInfo
-    private String wineCellar;
+    private String ingredients;
     @ColumnInfo
     private float price;
     @ColumnInfo
     private float qualification;
 
-
-    public Wine(String name, String type, int age, String wineCellar, float price, float qualification) {
-        this.name = name;
-        this.type = type;
-        this.age = age;
-        this.wineCellar = wineCellar;
-        this.price = price;
-        this.qualification = qualification;
-    }
-
     @Override
     public String toString() {
-        return "Wine{" +
+        return "Cocktail{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", age=" + age +
-                ", wineCellar='" + wineCellar + '\'' +
+                ", grade=" + grade +
+                ", ingredients='" + ingredients + '\'' +
                 ", price=" + price +
                 ", qualification=" + qualification +
                 '}';
     }
 
-
+    public Cocktail(int id, String name, float grade, String ingredients, float price, float qualification) {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+        this.ingredients = ingredients;
+        this.price = price;
+        this.qualification = qualification;
+    }
 
     public int getId() {
         return id;
@@ -64,28 +58,20 @@ public class Wine implements Serializable {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public float getGrade() {
+        return grade;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setGrade(float grade) {
+        this.grade = grade;
     }
 
-    public int getAge() {
-        return age;
+    public String getIngredients() {
+        return ingredients;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getWineCellar() {
-        return wineCellar;
-    }
-
-    public void setWineCellar(String wineCellar) {
-        this.wineCellar = wineCellar;
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public float getPrice() {

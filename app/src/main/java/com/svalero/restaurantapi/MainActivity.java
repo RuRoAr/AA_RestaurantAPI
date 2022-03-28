@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public List<Restaurant> restaurants;// necesito tener una lista para los Restaurantes, lista de la BBDD
     private ArrayAdapter<Restaurant> restaurantsAdapter;//objeto android que hace que el lv liste todo el arrayList
 
-    Restaurant restaurant = new Restaurant("","","",0,"",0,"");
+   // Restaurant restaurant = new Restaurant("","","",0,"",0,"");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent1);
                 return true;
             case R.id.new_wine:
-                Intent intent4 = new Intent(this, NewWine.class);
+                Intent intent4 = new Intent(this, ListWine.class);
                 startActivity(intent4);
                 return true;
             case R.id.restaurant_found:
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent2);
                 return true;
             case R.id.user_login:
-                Intent intent3 = new Intent(this, UserLogin.class);
+                Intent intent3 = new Intent(this, ListCocktail.class);
                 startActivity(intent3);
                 return true;
             case R.id.camera:
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case R.id.detail:
                 final int itemSeleccionado = info.position;
                 Restaurant restaurant = restaurants.get(itemSeleccionado);
-                Intent intent8 = new Intent(this, RestaurantDetail.class);
+                Intent intent8 = new Intent(this, PhotoCamera.class);
                 intent8.putExtra("recomendation", restaurant.getRecommendation());
                 startActivity(intent8);
             case R.id.borrar:
