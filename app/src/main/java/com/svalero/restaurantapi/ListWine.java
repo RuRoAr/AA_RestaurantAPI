@@ -6,6 +6,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -74,14 +75,14 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Wine wine = wines.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
-//        //la posicion me la da el metodo
-//        Intent intent= new Intent(this, NewWine.class);//carga la clase
-//        intent.putExtra("modify", 1);
-//        intent.putExtra("nameWine", wine.getName());
-//        intent.putExtra("Wine", wine);
-//        // intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
-//        startActivity(intent);
+        Wine wine = wines.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
+        //la posicion me la da el metodo
+        Intent intent= new Intent(this, NewWine.class);//carga la clase
+        intent.putExtra("modify", 1);
+        intent.putExtra("nameWine", wine.getName());
+        intent.putExtra("Wine", wine);
+        // intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
+        startActivity(intent);
     }
     public boolean addWine(View view){
         Intent intent = new Intent(this, NewWine.class);//con este obejeto es
@@ -89,13 +90,20 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
             startActivity(intent);
             return true;
     }
+
     @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.deletes, menu);
+    }
+
+        @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
         switch (item.getItemId()) {
-            case R.id.borrar:
+            case R.id.borrar_wine:
                 deleteWine(info);
                 return true;
             default:
