@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public List<Restaurant> restaurants;// necesito tener una lista para los Restaurantes, lista de la BBDD
     private ArrayAdapter<Restaurant> restaurantsAdapter;//objeto android que hace que el lv liste todo el arrayList
 
-    Restaurant restaurant = new Restaurant("","","",0,"",0,"");
+   // Restaurant restaurant = new Restaurant("","","",0,"",0,"");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,18 +78,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         switch (item.getItemId()) {
-
             case R.id.new_restuarant:
                 Intent intent1 = new Intent(this, NewRestaurant.class);
                 startActivity(intent1);
+                return true;
+            case R.id.list_wine:
+                Intent intent4 = new Intent(this, ListWine.class);
+                startActivity(intent4);
+                return true;
+            case R.id.list_cocktail:
+                Intent intent3 = new Intent(this, ListCocktail.class);
+                startActivity(intent3);
                 return true;
             case R.id.restaurant_found:
                 Intent intent2 = new Intent(this, RestaurantFound.class);
                 startActivity(intent2);
                 return true;
-            case R.id.user_login:
-                Intent intent3 = new Intent(this, UserLogin.class);
-                startActivity(intent3);
+            case R.id.camera:
+                Intent intent5 = new Intent(this, PhotoCamera.class);
+                startActivity(intent5);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -148,13 +155,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo info =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        final int itemSeleccionado = info.position;
+
         switch (item.getItemId()) {
-            case R.id.detail:
-                Restaurant restaurant = restaurants.get(itemSeleccionado);
-                Intent intent = new Intent(this, RestaurantDetail.class);
-                intent.putExtra("recomendationRestaurant", restaurant.getRecommendation());
-                startActivity(intent);
+//            case R.id.detail:
+//                final int itemSeleccionado = info.position;
+//                Restaurant restaurant = restaurants.get(itemSeleccionado);
+//                Intent intent8 = new Intent(this, PhotoCamera.class);
+//                intent8.putExtra("recomendation", restaurant.getRecommendation());
+//                startActivity(intent8);
             case R.id.borrar:
                 deleteRestaurant(info);
                 return true;
@@ -169,6 +177,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         db.restaurantDao().delete(restaurant);
         finish();
         startActivity(getIntent());
-
     }
 }

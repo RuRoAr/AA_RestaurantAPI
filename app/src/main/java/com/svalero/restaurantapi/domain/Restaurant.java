@@ -46,7 +46,6 @@ public class Restaurant implements Serializable {
     }
 
 
-
     public String getGoBack() {
         return goBack;
     }
