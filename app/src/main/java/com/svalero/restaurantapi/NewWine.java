@@ -14,7 +14,6 @@ import com.svalero.restaurantapi.domain.Restaurant;
 import com.svalero.restaurantapi.domain.Wine;
 
 public class NewWine extends AppCompatActivity {
-    private  int modify;
     private Wine wine = new Wine("","",0,"",0,0);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +70,9 @@ public class NewWine extends AppCompatActivity {
             etType.setText("");
             etAge.setText("");
             etQualification.setText("");
-            etPrice.setText("");
             etWineCellar.setText("");
+            etPrice.setText("");
+
 
             etName.requestFocus();
         }

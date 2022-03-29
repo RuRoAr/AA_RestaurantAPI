@@ -7,17 +7,17 @@
         android:icon="@android:drawable/ic_menu_add"
         android:title="Nuevo Restaurate" />
     <item
-        android:id="@+id/new_wine"
+        android:id="@+id/list_wine"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Nuevo vino" />
+        android:title="Lista de vinos" />
+    <item
+        android:id="@+id/list_cocktail"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Lista de cockteles" />
     <item
         android:id="@+id/restaurant_found"
         android:icon="@android:drawable/ic_menu_add"
         android:title="Busqueda de restaurante" />
-    <item
-        android:id="@+id/user_login"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="Datos del ususario" />
     <item
         android:id="@+id/camera"
         android:icon="@android:drawable/ic_menu_add"

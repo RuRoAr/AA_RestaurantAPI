@@ -82,17 +82,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Intent intent1 = new Intent(this, NewRestaurant.class);
                 startActivity(intent1);
                 return true;
-            case R.id.new_wine:
+            case R.id.list_wine:
                 Intent intent4 = new Intent(this, ListWine.class);
                 startActivity(intent4);
+                return true;
+            case R.id.list_cocktail:
+                Intent intent3 = new Intent(this, ListCocktail.class);
+                startActivity(intent3);
                 return true;
             case R.id.restaurant_found:
                 Intent intent2 = new Intent(this, RestaurantFound.class);
                 startActivity(intent2);
-                return true;
-            case R.id.user_login:
-                Intent intent3 = new Intent(this, ListCocktail.class);
-                startActivity(intent3);
                 return true;
             case R.id.camera:
                 Intent intent5 = new Intent(this, PhotoCamera.class);
@@ -157,12 +157,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.detail:
-                final int itemSeleccionado = info.position;
-                Restaurant restaurant = restaurants.get(itemSeleccionado);
-                Intent intent8 = new Intent(this, PhotoCamera.class);
-                intent8.putExtra("recomendation", restaurant.getRecommendation());
-                startActivity(intent8);
+//            case R.id.detail:
+//                final int itemSeleccionado = info.position;
+//                Restaurant restaurant = restaurants.get(itemSeleccionado);
+//                Intent intent8 = new Intent(this, PhotoCamera.class);
+//                intent8.putExtra("recomendation", restaurant.getRecommendation());
+//                startActivity(intent8);
             case R.id.borrar:
                 deleteRestaurant(info);
                 return true;
@@ -177,6 +177,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         db.restaurantDao().delete(restaurant);
         finish();
         startActivity(getIntent());
-
     }
 }

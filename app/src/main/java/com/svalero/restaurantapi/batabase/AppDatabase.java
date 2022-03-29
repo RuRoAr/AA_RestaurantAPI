@@ -13,7 +13,7 @@ import com.svalero.restaurantapi.domain.Restaurant;
 import com.svalero.restaurantapi.domain.Wine;
 
 
-@Database(entities = {Restaurant.class, Cocktail.class, Wine.class}, version = 9)
+@Database(entities = {Restaurant.class, Cocktail.class, Wine.class}, version = 8)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract RestaurantDao restaurantDao();

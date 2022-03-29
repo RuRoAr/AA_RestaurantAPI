@@ -15,31 +15,32 @@ public class Cocktail implements Serializable {
     @ColumnInfo
     private  float grade;
     @ColumnInfo
-    private String ingredients;
+    private String ingredient;
     @ColumnInfo
     private float price;
     @ColumnInfo
     private float qualification;
+    @ColumnInfo
+    private boolean alcoholicDrink;
 
     @Override
     public String toString() {
-        return "Cocktail{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", grade=" + grade +
-                ", ingredients='" + ingredients + '\'' +
-                ", price=" + price +
-                ", qualification=" + qualification +
-                '}';
+        return
+                "Nombre del cocktail ='" + name + "\n"  +
+                " Grados de alcohol =" + grade +"\n"+
+                 " Ingredientes ='" + ingredient + "\n"  +
+                " Precio =" + price +"\n"+
+                        " Calificacion =" + qualification +"\n"+
+                " Lleva alcohol?? =" + alcoholicDrink ;
     }
 
-    public Cocktail(int id, String name, float grade, String ingredients, float price, float qualification) {
-        this.id = id;
+    public Cocktail(String name, float grade, String ingredient, float price, float qualification, boolean alcoholicDrink) {
         this.name = name;
         this.grade = grade;
-        this.ingredients = ingredients;
+        this.ingredient = ingredient;
         this.price = price;
         this.qualification = qualification;
+        this.alcoholicDrink = alcoholicDrink;
     }
 
     public int getId() {
@@ -66,12 +67,12 @@ public class Cocktail implements Serializable {
         this.grade = grade;
     }
 
-    public String getIngredients() {
-        return ingredients;
+    public String getIngredient() {
+        return ingredient;
     }
 
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
     }
 
     public float getPrice() {
@@ -88,5 +89,13 @@ public class Cocktail implements Serializable {
 
     public void setQualification(float qualification) {
         this.qualification = qualification;
+    }
+
+    public boolean isAlcoholicDrink() {
+        return alcoholicDrink;
+    }
+
+    public void setAlcoholicDrink(boolean alcoholicDrink) {
+        this.alcoholicDrink = alcoholicDrink;
     }
 }

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ListCocktail">
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,14 +18,22 @@
             android:id="@+id/summary_cocktails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No hay cocktails en la lista" />
+            android:text="No hay cocktail en la lista" />
 
         <ListView
             android:id="@+id/cocktail_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="600dp">
 
         </ListView>
+
+        <Button
+            android:id="@+id/addCocktail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="addCocktail"
+            android:text="nuevo cocktail" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

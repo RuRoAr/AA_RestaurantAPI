@@ -36,14 +36,13 @@ public class Wine implements Serializable {
 
     @Override
     public String toString() {
-        return "Wine{" +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", age=" + age +
-                ", wineCellar='" + wineCellar + '\'' +
-                ", price=" + price +
-                ", qualification=" + qualification +
-                '}';
+        return
+                " Nombre del vino ='" + name + "\n"  +
+                " Tipo de vino ='" + type + "\n"  +
+                " Año del vino =" + age +"\n"+
+        " Bodega ='" + wineCellar + '\'' +"\n"+
+        " Precio de una botella =" + price +"\n"+
+        " Calificación =" + qualification ;
     }
 
 

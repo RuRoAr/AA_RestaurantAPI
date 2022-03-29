@@ -1,10 +1,12 @@
 package com.svalero.restaurantapi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.svalero.restaurantapi.batabase.AppDatabase;
+import com.svalero.restaurantapi.domain.Restaurant;
 import com.svalero.restaurantapi.domain.Wine;
 
 import java.util.ArrayList;
@@ -28,11 +31,11 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
         setContentView(R.layout.activity_list_wine);
         wines = new ArrayList<>();
 
-        ListView lvWines = findViewById(R.id.cocktail_list);
+        ListView lvWines = findViewById(R.id.wine_list);
         winesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, wines);
 
 
-        ListView lvLista = (ListView) findViewById(R.id.cocktail_list);
+        ListView lvLista = (ListView) findViewById(R.id.wine_list);
         registerForContextMenu(lvLista);//registra la lista en el menu contxtual
 
         lvWines.setAdapter(winesAdapter);//aqui se emparejan
@@ -71,20 +74,40 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Wine wine = wines.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
-        //la posicion me la da el metodo
-        Intent intent= new Intent(this, NewWine.class);//carga la clase
-        intent.putExtra("modify", 1);
-        intent.putExtra("nameWine", wine.getName());
-        intent.putExtra("Wine", wine);
-        // intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
-        startActivity(intent);
+//        Wine wine = wines.get(position);//cojo la posicion en la que esta el restaurante que voy a ver el detalle
+//        //la posicion me la da el metodo
+//        Intent intent= new Intent(this, NewWine.class);//carga la clase
+//        intent.putExtra("modify", 1);
+//        intent.putExtra("nameWine", wine.getName());
+//        intent.putExtra("Wine", wine);
+//        // intent.putExtra("name", restaurant.getName());//con esto le pasa valores que luego se pintan en el produc detail
+//        startActivity(intent);
     }
     public boolean addWine(View view){
         Intent intent = new Intent(this, NewWine.class);//con este obejeto es
 
             startActivity(intent);
             return true;
+    }
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
+        switch (item.getItemId()) {
+            case R.id.borrar:
+                deleteWine(info);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }}
+
+    public void  deleteWine(AdapterView.AdapterContextMenuInfo info){
+        Wine wine = wines.get(info.position);
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "wines").allowMainThreadQueries().build();
+        db.wineDao().delete(wine);
+        finish();
+        startActivity(getIntent());
     }
 }

@@ -22,16 +22,16 @@
             android:text="No hay vinos en la lista" />
 
         <ListView
-            android:id="@+id/cocktail_list"
+            android:id="@+id/wine_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="600dp">
 
         </ListView>
 
         <Button
-            android:id="@+id/addWine"
+            android:id="@+id/addCocktail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:onClick="addWine"
             android:text="nuevo vino" />
 

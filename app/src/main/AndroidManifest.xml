@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantAPI">
         <activity
+            android:name=".NewCocktail"
+            android:exported="false" />
+        <activity
             android:name=".ListCocktail"
             android:exported="false" />
         <activity
