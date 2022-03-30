@@ -66,7 +66,7 @@ public class NewCocktail extends AppCompatActivity {
             etIngredient.setText("");
             etQualification.setText("");
             etPrice.setText("");
-
+            checkBox.setChecked(false);
 
 
             etName.requestFocus();

@@ -1,10 +1,13 @@
 package com.svalero.restaurantapi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -87,6 +90,33 @@ public class ListCocktail extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent(this, NewCocktail.class);//con este obejeto es
         startActivity(intent);
         return true;
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.deletes, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+            case R.id.borrar_wine:
+                deleteCocktail(info);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }}
+
+    public void  deleteCocktail(AdapterView.AdapterContextMenuInfo info){
+        Cocktail cocktail= cocktails.get(info.position);
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "cocktails").allowMainThreadQueries().build();
+        db.cocktailDao().delete(cocktail);
+        finish();
+        startActivity(getIntent());
     }
 }
 

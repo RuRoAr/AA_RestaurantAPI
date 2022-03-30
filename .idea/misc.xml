@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Rayben/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26875" />
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/layout/activity_detail_restaurant.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/layout/activity_found_restaurant.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/layout/activity_list_cocktail.xml" value="0.23854166666666668" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/layout/activity_user_login.xml" value="0.264" />
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/menu/actionbar_main.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/menu/context.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/menu/delete.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Rayben/Desktop/RestaurantAPI/app/src/main/res/menu/edit.xml" value="0.2526041666666667" />
       </map>
     </option>
