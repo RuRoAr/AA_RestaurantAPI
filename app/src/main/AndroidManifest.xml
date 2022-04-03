@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.svalero.restaurantapi">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -36,16 +39,8 @@
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/file_paths" />
-
-
-
-
-
-
-
-
-
-
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD0_r4PC2Ih-GuMDDKUUqdOjDycxYe_VOM" />
         <activity
             android:name=".NewCocktail"
             android:exported="false" />
