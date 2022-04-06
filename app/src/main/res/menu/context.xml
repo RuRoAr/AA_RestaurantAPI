@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/borrar"
-        android:title="Borrar" />
+        android:title="@string/delete" />
 
 
 </menu>

@@ -1,9 +1,11 @@
 package com.svalero.restaurantapi;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -63,7 +65,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         TextView tvSummary = findViewById(R.id.summary);
 
-            tvSummary.setText("llevas gastado en restaurantes " + totalCost + " €");
+      //  tvSummary.setText(getString(R.string.summary_wines,totalCost));
+
+            tvSummary.setText(getString(R.string.gastado_en_restaurantes) + totalCost + " €");
     }
 
     @Override// boton derecho methos, te infla el menu
@@ -171,11 +175,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }}
 
     public void  deleteRestaurant(AdapterView.AdapterContextMenuInfo info){
-        Restaurant restaurant = restaurants.get(info.position);
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "restaurants").allowMainThreadQueries().build();
-        db.restaurantDao().delete(restaurant);
-        finish();
-        startActivity(getIntent());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder1 = builder.setMessage(R.string.confirmar)
+                .setPositiveButton(R.string.si,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Restaurant restaurant = restaurants.get(info.position);
+                        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                                AppDatabase.class, "restaurants").allowMainThreadQueries().build();
+                            db.restaurantDao().delete(restaurant);
+                        finish();
+                        startActivity(getIntent());
+                            }
+
+
+                        })
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+        builder.create().show();
+
+
     }
+
+
 }

@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Nombre del cocktail"
+                android:hint="@string/name_cocktail"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Ingredientes del cocktail" />
+                android:hint="@string/ingredients_cocktail" />
 
 
             <EditText
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Calificacion"
+                android:hint="@string/qualification_cocktail"
                 android:inputType="numberDecimal" />
 
             <EditText
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Grados de alchool"
+                android:hint="@string/grade_cocktail"
                 android:inputType="number" />
 
             <EditText
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Precio del cocktail"
+                android:hint="@string/cocktail_price"
                 android:inputType="numberDecimal" />
 
             <CheckBox
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
 
         android:onClick="add"
-        android:text="Añadir"
+        android:text="@string/add_cocktail"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         tools:layout_editor_absoluteX="15dp" />
 

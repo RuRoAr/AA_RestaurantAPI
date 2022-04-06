@@ -18,7 +18,7 @@
             android:id="@+id/summary_cocktails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No hay cocktail en la lista" />
+            android:text="@string/list_cocktail" />
 
         <ListView
             android:id="@+id/cocktail_list"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:onClick="addCocktail"
-            android:text="nuevo cocktail" />
+            android:text="@string/new_cocktail" />
 
     </LinearLayout>
 

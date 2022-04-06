@@ -42,7 +42,9 @@ public class NewCocktail extends AppCompatActivity {
                 || (etQualification.getText().toString().equals(""))
                 || (etPrice.getText().toString().equals("")))
         {
-            Toast.makeText(this, "Debes escribir todos los campos", Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
+            Toast.makeText(this,
+                    R.string.escrinir_todo,
+                    Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
         }else {
 
             Cocktail cocktail = new Cocktail(//Creamos el nuevo objeto para meter los valores

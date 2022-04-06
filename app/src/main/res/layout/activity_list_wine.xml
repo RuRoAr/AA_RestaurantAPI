@@ -19,7 +19,7 @@
             android:id="@+id/summary_wine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No hay vinos en la lista" />
+            android:text="@string/list_wine" />
 
         <ListView
             android:id="@+id/wine_list"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:onClick="addWine"
-            android:text="nuevo vino" />
+            android:text="@string/new_wine" />
 
     </LinearLayout>
 

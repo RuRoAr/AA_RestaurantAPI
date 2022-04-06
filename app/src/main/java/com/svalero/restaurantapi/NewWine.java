@@ -49,7 +49,7 @@ public class NewWine extends AppCompatActivity {
                 || (etPrice.getText().toString().equals(""))
                 || (etWineCellar.getText().toString().equals("")))
         {
-            Toast.makeText(this, "Debes escribir todos los campos", Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
+            Toast.makeText(this, R.string.escrinir_todo, Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
         }else {
             Wine wine = new Wine(//Creamos el nuevo objeto para meter los valores
                     etName.getText().toString(),

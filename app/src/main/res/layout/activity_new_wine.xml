@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Nombre del vino"
+                android:hint="@string/wine_name"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Tipo de vino" />
+                android:hint="@string/type_wine" />
 
             <EditText
                 android:id="@+id/wine_cellar"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Bodega" />
+                android:hint="@string/wine_cellar" />
 
             <EditText
                 android:id="@+id/wine_qualification"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Calificacion"
+                android:hint="@string/qualification_wine"
                 android:inputType="numberDecimal" />
 
             <EditText
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Año de cosecha"
+                android:hint="@string/wine_age"
                 android:inputType="number" />
 
             <EditText
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Precio botella"
+                android:hint="@string/botle_price"
                 android:inputType="numberDecimal" />
 
 
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
 
         android:onClick="add"
-        android:text="Añadir"
+        android:text="@string/add_wine"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         tools:layout_editor_absoluteX="15dp" />
 

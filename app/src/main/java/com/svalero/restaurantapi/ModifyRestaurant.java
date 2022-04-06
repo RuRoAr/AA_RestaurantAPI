@@ -48,7 +48,7 @@ public class ModifyRestaurant extends AppCompatActivity {
 
     }
     public  void modify (View view){
-        Toast.makeText(this, "Debes escribir todos los campos", Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
+        Toast.makeText(this, R.string.escrinir_todo, Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
 
         EditText etName = findViewById(R.id.restaurant_name);
         EditText etAddress = findViewById(R.id.restaurant_address);
@@ -68,11 +68,11 @@ public class ModifyRestaurant extends AppCompatActivity {
 
         if((name.equals(""))||(address.equals(""))||(typeFood.equals(""))||(qualificationString.equals(""))
                 ||(recomendation.equals(""))||(mediumPriceString.equals(""))||(goBack.equals(""))){
-            Toast.makeText(this, "tines que rellenar todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.escrinir_todo, Toast.LENGTH_SHORT).show();
         }else{
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("confirmar")
-                    .setPositiveButton("si",
+            AlertDialog.Builder builder1 = builder.setMessage(R.string.confirmar)
+                    .setPositiveButton(R.string.si,
                             new DialogInterface.OnClickListener() {
 
                                 @Override
@@ -88,12 +88,9 @@ public class ModifyRestaurant extends AppCompatActivity {
                                     restaurant.setMediumPrice(mediumPrice);
                                     AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                                             AppDatabase.class, "restaurants").allowMainThreadQueries().build();
-                                    //   if (modify == 1) {
+
                                     db.restaurantDao().update(restaurant);
-                                    //  } else {
-                                    //  db.restaurantDao().insert(restaurant);
-                                    //       finish();
-                                    //   }
+
                                     etName.setText("");
                                     etAddress.setText("");
                                     etQualification.setText("");
@@ -102,13 +99,15 @@ public class ModifyRestaurant extends AppCompatActivity {
                                     etRecomendation.setText("");
                                     etGoBack.setText("");
                                     etMediumPrice.setText("");
-                                }})
-                    .setNegativeButton("No",
+                                }
+                            })
+                    .setNegativeButton(R.string.no,
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
-                                }});
+                                }
+                            });
             builder.create().show();
 
 

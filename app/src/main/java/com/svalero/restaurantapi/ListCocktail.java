@@ -1,9 +1,11 @@
 package com.svalero.restaurantapi;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 
 import com.svalero.restaurantapi.batabase.AppDatabase;
 import com.svalero.restaurantapi.domain.Cocktail;
+import com.svalero.restaurantapi.domain.Restaurant;
 import com.svalero.restaurantapi.domain.Wine;
 
 import java.util.ArrayList;
@@ -53,7 +56,7 @@ public class ListCocktail extends AppCompatActivity implements AdapterView.OnIte
 
         TextView tvSummary = findViewById(R.id.summary_cocktails);
 
-        tvSummary.setText("llevas gastado en cocktails " + totalCost + " €");
+        tvSummary.setText(getString(R.string.gastado_en_cocktails) + totalCost + " €");
     }
 
     @Override
@@ -111,12 +114,30 @@ public class ListCocktail extends AppCompatActivity implements AdapterView.OnIte
         }}
 
     public void  deleteCocktail(AdapterView.AdapterContextMenuInfo info){
-        Cocktail cocktail= cocktails.get(info.position);
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "cocktails").allowMainThreadQueries().build();
-        db.cocktailDao().delete(cocktail);
-        finish();
-        startActivity(getIntent());
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder1 = builder.setMessage(R.string.confirmar)
+                .setPositiveButton(R.string.si,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Cocktail cocktail= cocktails.get(info.position);
+                                AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                                        AppDatabase.class, "cocktails").allowMainThreadQueries().build();
+                                db.cocktailDao().delete(cocktail);
+                                finish();
+                                startActivity(getIntent());
+                            }
+                        })
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+        builder.create().show();
     }
 }
 
