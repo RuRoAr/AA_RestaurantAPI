@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nombre del restaurante"
+                    android:hint="@string/name_restaurant"
                     android:inputType="textPersonName" />
 
                 <EditText
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Direccion del restaurante" />
+                    android:hint="@string/address_restaurant" />
 
                 <EditText
                     android:id="@+id/restaurant_type_food"
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Tipo de comida" />
+                    android:hint="@string/type_food" />
 
                 <EditText
                     android:id="@+id/restaurant_qualification"
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Calificacion"
+                    android:hint="@string/qualification_restaurant"
                     android:inputType="numberDecimal" />
 
                 <EditText
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Plato a recomendar" />
+                    android:hint="@string/plate_recomendation" />
 
                 <EditText
                     android:id="@+id/restaurant_medium_price"
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Precio medio"
+                    android:hint="@string/medium_price"
                     android:inputType="numberDecimal" />
 
                 <EditText
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Te has quedado con ganas de..." />
+                    android:hint="@string/goback" />
 
             </LinearLayout>
 
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
 
         android:onClick="add"
-        android:text="Añadir"
+        android:text="@string/add_restaurant"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="15dp" />
 

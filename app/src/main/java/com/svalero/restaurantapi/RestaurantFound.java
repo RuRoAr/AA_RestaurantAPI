@@ -33,8 +33,8 @@ public class RestaurantFound extends FragmentActivity implements OnMapReadyCallb
         LatLng zgz = new LatLng(41.674573,-0.889342);
         LatLng mdrd = new LatLng(40.426845,-3.694435);
 
-        mMap.addMarker(new MarkerOptions().position(zgz).title("Mejor restaurante de zaragoza"));
-        mMap.addMarker(new MarkerOptions().position(mdrd).title("Mejor restaurante de Madrid"));
+        mMap.addMarker(new MarkerOptions().position(zgz).title(getString(R.string.restaurante_zgz)));
+        mMap.addMarker(new MarkerOptions().position(mdrd).title(getString(R.string.restaurante_madrid)));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(zgz));
 

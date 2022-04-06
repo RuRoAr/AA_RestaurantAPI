@@ -53,8 +53,11 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
 
         TextView tvSummary = findViewById(R.id.summary_wine);
 
-        tvSummary.setText("llevas gastado en vinitos " + totalCost + " €");
+        tvSummary.setText(getString(R.string.summary_wines,totalCost));
     }
+
+
+
     @Override
     protected void onResume() {//otra forma de actualizar la lista
         super.onResume();

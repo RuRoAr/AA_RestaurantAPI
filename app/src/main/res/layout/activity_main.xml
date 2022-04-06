@@ -18,7 +18,7 @@
             android:id="@+id/summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No hay restaurantes en la lista" />
+            android:text="@string/list_restaurant" />
 
         <ListView
             android:id="@+id/restaurants_list"

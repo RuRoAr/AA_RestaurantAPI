@@ -53,7 +53,7 @@ public class ListCocktail extends AppCompatActivity implements AdapterView.OnIte
 
         TextView tvSummary = findViewById(R.id.summary_cocktails);
 
-        tvSummary.setText("llevas gastado en cocktails " + totalCost + " €");
+        tvSummary.setText(getString(R.string.summary_cocktails,totalCost));
     }
 
     @Override

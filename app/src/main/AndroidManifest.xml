@@ -40,7 +40,7 @@
             android:name="com.google.android.actions"
             android:resource="@xml/file_paths" />
         <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD0_r4PC2Ih-GuMDDKUUqdOjDycxYe_VOM" />
+            android:value="@string/Api_key"/>
         <activity
             android:name=".NewCocktail"
             android:exported="false" />

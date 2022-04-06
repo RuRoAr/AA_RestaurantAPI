@@ -63,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         TextView tvSummary = findViewById(R.id.summary);
 
-            tvSummary.setText("llevas gastado en restaurantes " + totalCost + " €");
+        tvSummary.setText(getString(R.string.summary_wines,totalCost));
+
+            tvSummary.setText(getString(R.string.gastado_en_restaurantes) + totalCost + " €");
     }
 
     @Override// boton derecho methos, te infla el menu

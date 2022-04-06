@@ -1,3 +1,49 @@
 <resources>
     <string name="app_name">RestaurantAPI</string>
+    <string name="gastado_en_cocktails">\"llevas gastado en cocktails \"</string>
+    <string name="gastado_en_vinos">\"llevas gastado en vinitos \"</string>
+    <string name="gastado_en_restaurantes">\"llevas gastado en restaurantes \"</string>
+    <string name="confirmar">confirmar ??</string>
+    <string name="si">si</string>
+    <string name="no">No</string>
+    <string name="escrinir_todo">Debes escribir todos los campos</string>
+    <string name="ruta_uri">com.svalero.restaurantapi.fileprovider</string>
+    <string name="error">Error</string>
+    <string name="restaurante_zgz">Mejor restaurante de zaragoza</string>
+    <string name="restaurante_madrid">Mejor restaurante de madrid</string>
+    <string name="Api_key">AIzaSyD0_r4PC2Ih-GuMDDKUUqdOjDycxYe_VOM</string>
+    <string name="summary_wines">gastado en vinos =  %1d €</string>
+    <string name="summary_cocktails">gastado en cocktails =  %1d €</string>
+    <string name="summary_restaurants">gastado en restaurantes =  %1d €</string>
+    <string name="list_cocktail">No hay cockyails en la lista</string>
+    <string name="new_cocktail">Nuevo cocktail</string>
+    <string name="add_restaurant">añadir restaurante</string>
+    <string name="list_wine">No hay vinos en la lista</string>
+    <string name="new_wine">Nuevo vino</string>
+    <string name="list_restaurant">No hay restaurantes en la lista</string>
+    <string name="new_restaurant">Nuevo restaurante</string>
+    <string name="name_restaurant">Nombre del restaurante</string>
+    <string name="address_restaurant">Dirección del restaurante</string>
+    <string name="type_food">Tipo de comida</string>
+    <string name="qualification_restaurant">Calificación del restaurante</string>
+    <string name="plate_recomendation">Plato a recomendar</string>
+    <string name="medium_price">Precio Medio por persona</string>
+    <string name="goback">Que debo de probar si vuelvo</string>
+    <string name="modify_restaurant">Moficar restaurante</string>
+    <string name="name_cocktail">Nombre del cocktail</string>
+    <string name="ingredients_cocktail">Ingredientes</string>
+    <string name="qualification_cocktail">Calificación del cocktail</string>
+    <string name="grade_cocktail">Grados del cocktail</string>
+    <string name="cocktail_price">Precio del cocktail</string>
+    <string name="alcoholic">Lleva alcohol??</string>
+    <string name="add_cocktail">añadir cocktail</string>
+    <string name="on_camera">encender camara</string>
+    <string name="wine_name">Mombre del vino</string>
+    <string name="qualification_wine">Calificación del vino</string>
+    <string name="type_wine">Tipo de vino</string>
+    <string name="wine_cellar">Bodega del vino</string>
+    <string name="wine_age">Año de cosecha</string>
+    <string name="botle_price">Precio de la botella</string>
+    <string name="add_wine">añadir vino</string>
+
 </resources>

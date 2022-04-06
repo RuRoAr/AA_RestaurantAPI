@@ -45,10 +45,10 @@ public class PhotoCamera extends AppCompatActivity {
             try {
                 imagenArchivo = crearImagen();
             }catch (IOException ex){
-                Log.e("Error", ex.toString());
+                Log.e(getString(R.string.error), ex.toString());
             }
             if (imagenArchivo != null){
-                Uri fotUri = FileProvider.getUriForFile(this, "com.svalero.restaurantapi.fileprovider",imagenArchivo);
+                Uri fotUri = FileProvider.getUriForFile(this, getString(R.string.ruta_uri),imagenArchivo);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT,fotUri);
                 startActivityForResult(intent, 1);
             }

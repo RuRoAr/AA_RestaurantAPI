@@ -63,7 +63,7 @@ public class NewRestaurant extends AppCompatActivity {
                 || (etTypeFood.getText().toString().equals(""))
                 || (etRecomendation.getText().toString().equals("")))
         {
-            Toast.makeText(this, "Debes escribir todos los campos", Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
+            Toast.makeText(this, R.string.escrinir_todo, Toast.LENGTH_SHORT).show();//aperece un mesaje tostada
         }else {
             Restaurant restaurant = new Restaurant(//Creamos el nuevo objeto para meter los valores
                     etName.getText().toString(),
