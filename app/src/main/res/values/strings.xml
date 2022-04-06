@@ -45,5 +45,9 @@
     <string name="wine_age">Año de cosecha</string>
     <string name="botle_price">Precio de la botella</string>
     <string name="add_wine">añadir vino</string>
+    <string name="restaurant_search">Busqueda de Restaurante</string>
+    <string name="update_photo">Subir foto a la galeria</string>
+    <string name="delete">Borrar</string>
+
 
 </resources>

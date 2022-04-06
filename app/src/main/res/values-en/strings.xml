@@ -46,4 +46,7 @@
     <string name="wine_cellar">wine cellar</string>
     <string name="type_wine">type of wine</string>
     <string name="qualification_wine">wine rating</string>
+    <string name="restaurant_search">Restaurant Search</string>
+    <string name="update_photo">Upload photo to gallery</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -5,15 +5,15 @@
     <item
         android:id="@+id/new_restuarant"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Nuevo Restaurate" />
+        android:title="@string/name_restaurant" />
     <item
         android:id="@+id/list_wine"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Lista de vinos" />
+        android:title="@string/list_wine" />
     <item
         android:id="@+id/list_cocktail"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Lista de cocktails" />
+        android:title="@string/list_cocktail" />
     <item
         android:id="@+id/restaurant_found"
         android:icon="@android:drawable/ic_menu_add"
