@@ -19,6 +19,9 @@
     <string name="new_cocktail">Nuevo cocktail</string>
     <string name="add_restaurant">añadir restaurante</string>
     <string name="list_wine">No hay vinos en la lista</string>
+    <string name="list_wine1">Lista de vinos</string>
+    <string name="list_restaurants">Lista de restaurantes</string>
+    <string name="list_cocktails1">Lista de cocktails</string>
     <string name="new_wine">Nuevo vino</string>
     <string name="list_restaurant">No hay restaurantes en la lista</string>
     <string name="new_restaurant">Nuevo restaurante</string>

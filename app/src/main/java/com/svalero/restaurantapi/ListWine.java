@@ -1,9 +1,11 @@
 package com.svalero.restaurantapi;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -53,7 +55,7 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
 
         TextView tvSummary = findViewById(R.id.summary_wine);
 
-        tvSummary.setText(getString(R.string.summary_wines,totalCost));
+        tvSummary.setText(getString(R.string.gastado_en_vinos) + totalCost + " €");
     }
 
 
@@ -114,11 +116,38 @@ public class ListWine extends AppCompatActivity implements AdapterView.OnItemCli
         }}
 
     public void  deleteWine(AdapterView.AdapterContextMenuInfo info){
-        Wine wine = wines.get(info.position);
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "wines").allowMainThreadQueries().build();
-        db.wineDao().delete(wine);
-        finish();
-        startActivity(getIntent());
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder1 = builder.setMessage(R.string.confirmar)
+                .setPositiveButton(R.string.si,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Wine wine = wines.get(info.position);
+                                AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                                        AppDatabase.class, "wines").allowMainThreadQueries().build();
+                                db.wineDao().delete(wine);
+                                finish();
+                                startActivity(getIntent());
+                            }
+
+
+                        })
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+        builder.create().show();
+
+
     }
+
+
 }

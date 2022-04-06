@@ -17,7 +17,7 @@
     <string name="summary_cocktails">spent in cocktails =  %1d €</string>
     <string name="summary_restaurants">spent in restaurants =  %1d €</string>
     <string name="list_cocktail">There are no cockyails in the list</string>
-    <string name="new_cocktail">Nes cocktail</string>
+    <string name="new_cocktail">New cocktail</string>
     <string name="add_restaurant">add restaurant</string>
     <string name="list_wine">There are no wines in the list</string>
     <string name="new_wine">new wine</string>
@@ -49,4 +49,8 @@
     <string name="restaurant_search">Restaurant Search</string>
     <string name="update_photo">Upload photo to gallery</string>
     <string name="delete">Delete</string>
+    <string name="list_wine1">List of wines</string>
+    <string name="list_cocktails1">List of cocktails</string>
+    <string name="list_restaurants">List of restaurants</string>
+
 </resources>
